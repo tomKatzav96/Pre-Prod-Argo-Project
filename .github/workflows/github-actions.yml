@@ -26,7 +26,9 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - run: cat values.yaml
       - run: sed -i 's/VERSION_NUMBER/1.0.${{ github.run_number }}/' values.yaml
-      - run: cat values.yaml
-      - run: echo "push to pre-prod repository"
+      - name: Push to another repository
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          repository: tomKatzav96/Pre-Prod-Argo-Project 
+          token: ${{ secrets.MY_GITHUB_TOKEN }}

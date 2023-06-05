@@ -31,4 +31,4 @@ jobs:
         uses: ad-m/github-push-action@v0.6.0
         with:
           repository: tomKatzav96/Pre-Prod-Argo-Project 
-          token: ${{ secrets.MY_GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}

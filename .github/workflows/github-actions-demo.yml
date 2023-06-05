@@ -9,6 +9,7 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
   Update-Push: 
+    needs: Build-Test-Publish
     runs-on: ubuntu-20.04 
     steps:
       - run: docker ps

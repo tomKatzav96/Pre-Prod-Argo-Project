@@ -1,1 +1,1 @@
-# Argo-Project develor repository
+# Argo-Project developer repository

@@ -11,9 +11,9 @@ jobs:
       - run: docker run -p 5000:5000 --name=argo-weather -d tomkatzav/argo-weather:1.0.${{ github.run_number }}
       - run: pip install -r ./app/requirements.txt
       - run: python3 ./tests/unit_test.py
-      - run: python3 .tests/docker_image_test.py
+      - run: python3 ./tests/docker_image_test.py
       - run: echo "login to dockerhub"
-      - run: echo "push to dockerhub"
+      - run: docker push tomkatzav/argo-weather:1.0.${{ github.run_number }}
 
   Update-Push: 
     needs: Build-Test-Publish

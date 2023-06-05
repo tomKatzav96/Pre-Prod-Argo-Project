@@ -5,7 +5,7 @@ jobs:
   Build-Test-Publish:
     runs-on: ubuntu-20.04 
     steps:
-      - run: docker build -t tomkatzav/argo-weather:1.0.${{ github.run_number }} ./app
+      - run: docker build -t tomkatzav/argo-weather:1.0.${{ github.run_number }} /home/runner/work/Dev-Argo-Project/Dev-Argo-Project/app
       - run: docker run -p 5000:5000 --name=argo-weather -d tomkatzav/argo-weather:1.0.${{ github.run_number }}
       - run: python3 ./tests/unit_test.py
       - run: pyrhon3 .tests/docker_image_test.py

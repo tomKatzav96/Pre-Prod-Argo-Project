@@ -5,7 +5,7 @@ jobs:
   Build-Test-Publish:
     runs-on: ubuntu-20.04 
     steps:
-      - run: echo "the run numbber in ${{ github.run_numbere }}."
+      - run: echo "the run numbber is ${{ github.run_number }}."
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
   Update-Push: 

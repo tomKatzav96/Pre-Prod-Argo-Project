@@ -1,11 +1,11 @@
 name: GitHub Actions
-run-name: developer 
+run-name:  continuous integration and delivery to pre-produbtion env 
 on: [push]
 jobs:
   Build-Test-Publish:
     runs-on: ubuntu-20.04 
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "the run numbber in ${{ github.run_numbere }}."
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
   Update-Push: 
@@ -13,5 +13,5 @@ jobs:
     runs-on: ubuntu-20.04 
     steps:
       - run: docker ps
-      - run: echo "test"
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "update yaml file"
+      - run: echo "push to pre-prod repository"

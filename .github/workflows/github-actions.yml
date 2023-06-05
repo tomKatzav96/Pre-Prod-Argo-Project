@@ -25,5 +25,7 @@ jobs:
     runs-on: ubuntu-20.04 
     steps:
       - run: docker ps
-      - run: echo "update yaml file"
+      - run: cat values.yaml
+      - run: sed -i 's/VERSION_NUMBER/1.0.${{ github.run_number }}/' values.yaml
+      - run: cat values.yaml
       - run: echo "push to pre-prod repository"

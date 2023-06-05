@@ -1,0 +1,20 @@
+# Values file
+
+name: weather
+
+replicaCount: 1
+
+image:
+  repository: shiranitz/weather_app
+  pullPolicy: IfNotPresent
+
+service:
+  name: weather-service
+  type: NodePort  
+  portName: my-port
+  protocol: TCP
+  port: 5000
+  targetPort: 5000
+  nodePort: 30100
+
+

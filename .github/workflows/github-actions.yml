@@ -1,0 +1,21 @@
+name: GitHub Actions
+run-name:  continuous integration and delivery to pre-produbtion env 
+on: [push]
+jobs:
+  Build-Test-Publish:
+    runs-on: ubuntu-20.04 
+    steps:
+      - run: docker build -t tomkatzav/argo-weather:1.0.${{ github.run_number }} ./app
+      - run: docker run -p 5000:5000 --name=argo-weather -d tomkatzav/argo-weather:1.0.${{ github.run_number }}
+      - run: python3 ./tests/unit_test.py
+      - run: pyrhon3 .tests/docker_image_test.py
+      - run: echo "login to dockerhub"
+      - run: echo "push to dockerhub"
+
+  Update-Push: 
+    needs: Build-Test-Publish
+    runs-on: ubuntu-20.04 
+    steps:
+      - run: docker ps
+      - run: echo "update yaml file"
+      - run: echo "push to pre-prod repository"

@@ -5,7 +5,7 @@ import unittest
 class TestStringMethods(unittest.TestCase):
 
     def test_page_headers(self):
-        url = 'http://localhost:80'
+        url = 'http://localhost:5000'
         response = requests.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertIn('Weather Home', response.text)

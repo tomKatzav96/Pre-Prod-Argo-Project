@@ -27,8 +27,13 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
       - run: sed -i 's/VERSION_NUMBER/1.0.${{ github.run_number }}/' values.yaml
-      - name: Push to another repository
-        uses: ad-m/github-push-action@v0.6.0
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -a -m "Add changes"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
         with:
-          repository: tomKatzav96/Pre-Prod-Argo-Project 
-          token: ${{ secrets.PAT_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}

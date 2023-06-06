@@ -5,7 +5,7 @@ name: weather
 replicaCount: 1
 
 image:
-  repository: tomkatzav/argo-weather:VERSION_NUMBER
+  repository: tomkatzav/argo-weather:1.0.38
   pullPolicy: IfNotPresent
 
 service:

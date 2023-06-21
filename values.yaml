@@ -2,7 +2,7 @@
 
 name: weather
 
-replicaCount: 2
+replicaCount: 4
 
 nameSpaces: pre-prod
 

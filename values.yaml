@@ -7,7 +7,7 @@ replicaCount: 1
 nameSpaces: pre-prod
 
 image:
-  repository: tomkatzav/argo-weather:1.0.59
+  repository: tomkatzav/argo-weather:1.0.60
   pullPolicy: IfNotPresent
 
 service:

@@ -12,11 +12,8 @@ image:
 
 service:
   name: weather-service
-  type: NodePort  
+  type: ClusterIP 
   portName: my-port
   protocol: TCP
   port: 5000
   targetPort: 5000
-  nodePort: 30111
-
-
